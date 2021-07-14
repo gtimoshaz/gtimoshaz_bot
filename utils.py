@@ -12,3 +12,6 @@ def get_signs_count(html: str) -> int:
     el = tree.xpath(xpath)
     return int(el[0].text)
 
+def download_signs_count() -> int:
+    s = get_bruh_html()
+    return get_signs_count(s)
