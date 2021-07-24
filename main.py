@@ -3,7 +3,7 @@ from aiogram import Bot, Dispatcher, executor, types
 import os
 import utils
 
-TOKEN = os.environ["TELEGRAM_TOKEN"]
+TOKEN = os.environ.get("TELEGRAM_TOKEN")
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
@@ -13,7 +13,7 @@ async def send_bruh_signs_count(message: types.Message):
     """
     Send signs count
     """
-    sc = utils.download_signs_count()
+    sc = await utils.download_signs_count()
     await message.reply(str(sc))
 
 if __name__ == '__main__':
